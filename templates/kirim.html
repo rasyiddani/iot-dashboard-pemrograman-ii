@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman POST</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <div>
+            <p class="eyebrow">Flask HTTP Method</p>
+            <h1>Halaman POST</h1>
+        </div>
+        <nav class="nav-actions">
+            <a class="button secondary" href="{{ url_for('index') }}">Dashboard GET</a>
+        </nav>
+    </header>
+
+    <main class="layout two-column">
+        <section class="panel">
+            <div class="section-title">
+                <div>
+                    <p class="method post">POST</p>
+                    <h2>/api/suhu</h2>
+                </div>
+            </div>
+
+            <form class="form-grid" id="suhu-form">
+                <label for="suhu">Suhu</label>
+                <div class="input-row">
+                    <input type="number" id="suhu" step="0.1" placeholder="29.5" required>
+                    <span>&deg;C</span>
+                </div>
+                <button class="button" type="submit">Kirim POST</button>
+            </form>
+
+            <pre class="result-box" id="suhu-post-result">Response POST suhu akan tampil di sini.</pre>
+        </section>
+
+        <section class="panel">
+            <div class="section-title">
+                <div>
+                    <p class="method post">POST</p>
+                    <h2>/api/lampu</h2>
+                </div>
+            </div>
+
+            <form class="form-grid" id="lampu-form">
+                <label for="lampu-toggle">Status lampu</label>
+                <div class="switch-row">
+                    <label class="switch">
+                        <input type="checkbox" id="lampu-toggle">
+                        <span class="slider"></span>
+                    </label>
+                    <strong id="lampu-label">OFF</strong>
+                </div>
+                <button class="button" type="submit">Kirim POST</button>
+            </form>
+
+            <pre class="result-box" id="lampu-post-result">Response POST lampu akan tampil di sini.</pre>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard GET</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <div>
+            <p class="eyebrow">Flask HTTP Method</p>
+            <h1>Dashboard GET</h1>
+        </div>
+        <nav class="nav-actions">
+            <a class="button secondary" href="{{ url_for('kirim') }}">Halaman POST</a>
+        </nav>
+    </header>
+
+    <main class="layout">
+        <section class="panel summary-panel">
+            <div>
+                <p class="label">Endpoint</p>
+                <h2>GET /api/suhu</h2>
+                <p class="value">{{ data.suhu|length }} data</p>
+            </div>
+            <div>
+                <p class="label">Endpoint</p>
+                <h2>GET /api/lampu</h2>
+                <p class="value status-{{ data.lampu.status|lower }}">{{ data.lampu.status }}</p>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="section-title">
+                <div>
+                    <p class="eyebrow">Sensor suhu</p>
+                    <h2>Data dari server</h2>
+                </div>
+                <button class="button" id="get-suhu">GET Data</button>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Timestamp</th>
+                            <th>Suhu</th>
+                        </tr>
+                    </thead>
+                    <tbody id="suhu-rows">
+                        {% for item in data.suhu %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ item.timestamp }}</td>
+                            <td>{{ item.suhu }} &deg;C</td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="3">Belum ada data suhu.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="section-title">
+                <div>
+                    <p class="eyebrow">Lampu</p>
+                    <h2>Status dari server</h2>
+                </div>
+                <button class="button" id="get-lampu">GET Data</button>
+            </div>
+
+            <div class="lamp-state">
+                <span class="lamp-dot status-{{ data.lampu.status|lower }}"></span>
+                <strong id="lampu-current">{{ data.lampu.status }}</strong>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Timestamp</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lampu-rows">
+                        {% for item in data.lampu.history %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ item.timestamp }}</td>
+                            <td>{{ item.status }}</td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="3">Belum ada perubahan lampu.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

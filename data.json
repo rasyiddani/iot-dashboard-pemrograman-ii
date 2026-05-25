@@ -1,0 +1,69 @@
+{
+    "suhu": [
+        {
+            "timestamp": "2026-05-18 00:38:26",
+            "suhu": 28.5
+        },
+        {
+            "timestamp": "2026-05-24 20:32:47",
+            "suhu": 39.0
+        },
+        {
+            "timestamp": "2026-05-25 08:28:30",
+            "suhu": 30.0
+        },
+        {
+            "timestamp": "2026-05-25 08:31:44",
+            "suhu": 31.0
+        },
+        {
+            "timestamp": "2026-05-25 08:36:30",
+            "suhu": 32.0
+        },
+        {
+            "timestamp": "2026-05-25 08:38:48",
+            "suhu": 39.9
+        }
+    ],
+    "lampu": {
+        "status": "OFF",
+        "history": [
+            {
+                "timestamp": "2026-05-18 00:39:00",
+                "status": "OFF"
+            },
+            {
+                "timestamp": "2026-05-24 20:33:14",
+                "status": "ON"
+            },
+            {
+                "timestamp": "2026-05-24 20:33:20",
+                "status": "ON"
+            },
+            {
+                "timestamp": "2026-05-24 20:33:26",
+                "status": "OFF"
+            },
+            {
+                "timestamp": "2026-05-24 20:41:59",
+                "status": "ON"
+            },
+            {
+                "timestamp": "2026-05-25 08:44:42",
+                "status": "ON"
+            },
+            {
+                "timestamp": "2026-05-25 08:45:28",
+                "status": "OFF"
+            },
+            {
+                "timestamp": "2026-05-25 08:47:35",
+                "status": "ON"
+            },
+            {
+                "timestamp": "2026-05-25 08:47:46",
+                "status": "OFF"
+            }
+        ]
+    }
+}
